@@ -16,6 +16,14 @@ public class City {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
+    public City() {}
+
+    public City(int id, String name, Country country) {
+        this.id = id;
+        this.name = name;
+        this.country = country;
+    }
+
     public int getId() {
         return id;
     }

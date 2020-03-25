@@ -6,26 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityService {
 
-    private final CityRepository cityDAO;
+    private final CityRepository cityRepository;
 
     @Autowired
-    public CityService(CityRepository cityDAO) {
-        this.cityDAO = cityDAO;
+    public CityService(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
     }
 
     public List<City> findByCountryName(String name) {
-        return cityDAO.findCitiesByCountry_NameContains(name);
+        return cityRepository.findCitiesByCountry_NameContains(name);
     }
 
     public List<City> findAll() {
-        return (List<City>) cityDAO.findAll();
+        return (List<City>) cityRepository.findAll();
     }
 
     public void loadCities(List<City> cities) {
-        cities.forEach(cityDAO::save);
+        cities.forEach(cityRepository::save);
     }
+
+    public Optional<City> findById(int id) { return cityRepository.findById(id); }
 }

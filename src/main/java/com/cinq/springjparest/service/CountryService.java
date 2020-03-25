@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CountryService {
@@ -26,4 +27,6 @@ public class CountryService {
     public void loadCountries(List<Country> countries) {
         countries.forEach(countryRepository::save);
     }
+
+    public Optional<Country> findById(int id) { return countryRepository.findById(id); }
 }

@@ -10,7 +10,7 @@
 
 ## Execute the project
 
-Run the following command into your terminal:
+After you build the project, run the following command into your terminal:
 
 `java -jar target/spring-jpa-rest-0.0.1-SNAPSHOT.jar`
 
